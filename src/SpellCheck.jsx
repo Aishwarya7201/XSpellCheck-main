@@ -1,29 +1,8 @@
 import React, { useState } from "react";
-const customDictionary = {
-  teh: "the",
-  wrok: "work",
-  fot: "for",
-  exampl: "example",
-  th2: "the",
-};
+
 const XSpellCheck = () => {
   const [text, setText] = useState("");
   const [corrections, setCorrections] = useState([]);
-  const handleChange = (e) => {
-    const inputText = e.target.value;
-    setText(inputText);
-    const words = inputText.split(" ");
-    const correctedWords = words.map((item) => {
-      const correctedWord = customDictionary[item.toLowerCase()];
-      return correctedWord || item;
-    });
-    correctedWords.join(" "); 
-    const firstCorrection = correctedWords.find(
-      (word, idx) => word !== words[idx]
-    );
-    // eslint-disable-next-line no-undef
-    setSuggestions(firstCorrection || "");
-  };
 
   const handleTextChange = async (event) => {
     const newText = event.target.value;
